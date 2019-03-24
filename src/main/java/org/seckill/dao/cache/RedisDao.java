@@ -61,8 +61,7 @@ public class RedisDao {
                         LinkedBuffer.allocate(LinkedBuffer.DEFAULT_BUFFER_SIZE));
                 //超时缓存
                 int timeout = 60*60;
-                String result = jedis.setex(key.getBytes(), timeout, bytes);
-                return result;
+                return jedis.setex(key.getBytes(), timeout, bytes);
             }finally {
                 jedis.close();
             }
